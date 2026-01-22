@@ -130,7 +130,7 @@
     }
 
     .legend-card {
-        background: white;
+        background: #F3F4F6;
         border-radius: 0.5rem;
         box-shadow: 0 1px 4px rgba(0,0,0,0.1);
         border: 1px solid #e5e7eb;
@@ -146,16 +146,36 @@
     }
 
     .legend-map-data {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.375rem;
-        background: #8dd3c7;
-        border: 1px solid #d1d5db;
-        padding: 0.25rem 0.5rem;
-        border-radius: 0.25rem;
-        font-size: 0.75rem;
-        font-weight: 500;
-        color: #374151;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    background: #8dd3c7;
+    border: 1px solid #d1d5db;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: #374151;
+    cursor: pointer;
+}
+
+.legend-map-data:hover {
+    opacity: 1.85;
+    color:black;
+
+}
+
+.legend-map-data:active {
+    transform: scale(0.97);
+}
+
+    .legend-sedang .legend-map-data {
+        background:#FFFFB3;
+
+    }
+
+    .legend-lebat .legend-map-data {
+        background:#BEBADA;
     }
 
     .legend-map-data svg {
@@ -336,7 +356,7 @@
             SIKOMANG menyediakan data monitoring komprehensif untuk 23 titik pemantauan di 4 wilayah DKI Jakarta. Platform ini memungkinkan pemantauan real-time kondisi ekosistem mangrove, pelaporan kerusakan, dan koordinasi upaya konservasi untuk mendukung kelestarian lingkungan pesisir Jakarta.
         </p>
 
-        <a href="#hasil-pemantauan" class="btn-primary">
+        <a href="{{ route('hasil-pemantauan') }}" class="btn-primary">
             <span>Hasil Pemantauan</span>
             <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 17L17 7M17 7H7M17 7V17"/>
@@ -428,13 +448,13 @@
         {{-- Map Legend - Updated Design --}}
         <div class="map-legend">
             {{-- Legend Card 1 - Jarang --}}
-            <div class="legend-card">
+            <div class="legend-card legend-jarang">
                 <div class="legend-card-header">
-                    <div class="legend-map-data">
+                    <button  class="legend-map-data" onclick="exportExcel('jarang')">
                         <svg data-v-f0822899="" class="fill-[#6B7280] group-hover:fill-[#000]" width="12" height="15" viewBox="0 0 12 15" xmlns="http://www.w3.org/2000/svg"><path data-v-f0822899="" d="M1.40625 13.125V1.875C1.40625 1.61719 1.61719 1.40625 1.875 1.40625H6.5625V3.75C6.5625 4.26855 6.98145 4.6875 7.5 4.6875H9.84375V13.125C9.84375 13.3828 9.63281 13.5938 9.375 13.5938H1.875C1.61719 13.5938 1.40625 13.3828 1.40625 13.125ZM1.875 0C0.84082 0 0 0.84082 0 1.875V13.125C0 14.1592 0.84082 15 1.875 15H9.375C10.4092 15 11.25 14.1592 11.25 13.125V4.52637C11.25 4.02832 11.0537 3.55078 10.7021 3.19922L8.04785 0.547852C7.69629 0.196289 7.22168 0 6.72363 0H1.875ZM6.32812 6.79688C6.32812 6.40723 6.01465 6.09375 5.625 6.09375C5.23535 6.09375 4.92188 6.40723 4.92188 6.79688V9.78809L4.01367 8.87988C3.73828 8.60449 3.29297 8.60449 3.02051 8.87988C2.74805 9.15527 2.74512 9.60059 3.02051 9.87305L5.12988 11.9824C5.40527 12.2578 5.85059 12.2578 6.12305 11.9824L8.23242 9.87305C8.50781 9.59766 8.50781 9.15234 8.23242 8.87988C7.95703 8.60742 7.51172 8.60449 7.23926 8.87988L6.33105 9.78809V6.79688H6.32812Z"></path></svg>
                         </svg>
                         <span>Map Data</span>
-                    </div>
+                    </button    >
                     <button class="legend-expand-btn" onclick="toggleLegend('jarang')">
                         <span>Expand</span>
                         <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -453,7 +473,7 @@
             </div>
 
             {{-- Legend Card 2 - Sedang --}}
-            <div class="legend-card">
+            <div class="legend-card legend-sedang">
                 <div class="legend-card-header">
                     <div class="legend-map-data">
                         <svg data-v-f0822899="" class="fill-[#6B7280] group-hover:fill-[#000]" width="12" height="15" viewBox="0 0 12 15" xmlns="http://www.w3.org/2000/svg"><path data-v-f0822899="" d="M1.40625 13.125V1.875C1.40625 1.61719 1.61719 1.40625 1.875 1.40625H6.5625V3.75C6.5625 4.26855 6.98145 4.6875 7.5 4.6875H9.84375V13.125C9.84375 13.3828 9.63281 13.5938 9.375 13.5938H1.875C1.61719 13.5938 1.40625 13.3828 1.40625 13.125ZM1.875 0C0.84082 0 0 0.84082 0 1.875V13.125C0 14.1592 0.84082 15 1.875 15H9.375C10.4092 15 11.25 14.1592 11.25 13.125V4.52637C11.25 4.02832 11.0537 3.55078 10.7021 3.19922L8.04785 0.547852C7.69629 0.196289 7.22168 0 6.72363 0H1.875ZM6.32812 6.79688C6.32812 6.40723 6.01465 6.09375 5.625 6.09375C5.23535 6.09375 4.92188 6.40723 4.92188 6.79688V9.78809L4.01367 8.87988C3.73828 8.60449 3.29297 8.60449 3.02051 8.87988C2.74805 9.15527 2.74512 9.60059 3.02051 9.87305L5.12988 11.9824C5.40527 12.2578 5.85059 12.2578 6.12305 11.9824L8.23242 9.87305C8.50781 9.59766 8.50781 9.15234 8.23242 8.87988C7.95703 8.60742 7.51172 8.60449 7.23926 8.87988L6.33105 9.78809V6.79688H6.32812Z"></path></svg>
@@ -478,7 +498,7 @@
             </div>
 
             {{-- Legend Card 3 - Lebat --}}
-            <div class="legend-card">
+            <div class="legend-card legend-lebat">
                 <div class="legend-card-header">
                     <div class="legend-map-data">
                         <svg data-v-f0822899="" class="fill-[#6B7280] group-hover:fill-[#000]" width="12" height="15" viewBox="0 0 12 15" xmlns="http://www.w3.org/2000/svg"><path data-v-f0822899="" d="M1.40625 13.125V1.875C1.40625 1.61719 1.61719 1.40625 1.875 1.40625H6.5625V3.75C6.5625 4.26855 6.98145 4.6875 7.5 4.6875H9.84375V13.125C9.84375 13.3828 9.63281 13.5938 9.375 13.5938H1.875C1.61719 13.5938 1.40625 13.3828 1.40625 13.125ZM1.875 0C0.84082 0 0 0.84082 0 1.875V13.125C0 14.1592 0.84082 15 1.875 15H9.375C10.4092 15 11.25 14.1592 11.25 13.125V4.52637C11.25 4.02832 11.0537 3.55078 10.7021 3.19922L8.04785 0.547852C7.69629 0.196289 7.22168 0 6.72363 0H1.875ZM6.32812 6.79688C6.32812 6.40723 6.01465 6.09375 5.625 6.09375C5.23535 6.09375 4.92188 6.40723 4.92188 6.79688V9.78809L4.01367 8.87988C3.73828 8.60449 3.29297 8.60449 3.02051 8.87988C2.74805 9.15527 2.74512 9.60059 3.02051 9.87305L5.12988 11.9824C5.40527 12.2578 5.85059 12.2578 6.12305 11.9824L8.23242 9.87305C8.50781 9.59766 8.50781 9.15234 8.23242 8.87988C7.95703 8.60742 7.51172 8.60449 7.23926 8.87988L6.33105 9.78809V6.79688H6.32812Z"></path></svg>
@@ -526,7 +546,7 @@
 
     L.control.layers(baseMaps, null, {position: 'topleft'}).addTo(map);
 
-    // Sample mangrove areas (replace with actual GeoJSON data)
+    // Sample mangrove area
     const mangroveAreas = {
         jarang: [
             {coords: [[-5.85, 106.70], [-5.88, 106.73], [-5.87, 106.68]], name: "Area Jarang 1"},

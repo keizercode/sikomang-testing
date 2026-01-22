@@ -38,6 +38,11 @@ Route::get('/monitoring', function () {
     return view('pages.monitoring');
 })->name('monitoring');
 
+// Hasil-Pemantauan
+Route::get('/hasil-pemantauan', function () {
+    return view('pages.hasil-pemantauan');
+})->name('hasil-pemantauan');
+
 // Articles
 Route::prefix('artikel')->group(function () {
     Route::get('/', function () {
