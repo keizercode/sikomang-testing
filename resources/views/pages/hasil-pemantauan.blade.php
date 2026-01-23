@@ -1,7 +1,4 @@
-
-
 @extends('layouts.app')
-
 
 @section('title', 'Pemanfaatan Mangrove - SIKOMANG')
 
@@ -38,20 +35,20 @@
             <h3>Sebaran Geografis</h3>
             <ul class="location-list">
                 <li>
-                    <span class="location-name">Tangerang</span>
-                    <span class="location-count">11 Desa</span>
+                    <span class="location-name">Kecamatan Penjaringan</span>
+                    <span class="location-count">11 Sites</span>
                 </li>
                 <li>
-                    <span class="location-name">Kec. Sepatan Timur</span>
-                    <span class="location-count">1 Desa</span>
+                    <span class="location-name">Kecamatan Cilincing</span>
+                    <span class="location-count">5 Sites</span>
                 </li>
                 <li>
-                    <span class="location-name">Kecamatan Sepulu Ulung</span>
-                    <span class="location-count">5 Desa</span>
+                    <span class="location-name">Kepulauan Seribu Utara</span>
+                    <span class="location-count">3 Sites</span>
                 </li>
                 <li>
-                    <span class="location-name">Kecamatan Sentry Uctharn</span>
-                    <span class="location-count">1 Desa</span>
+                    <span class="location-name">Kepulauan Seribu Selatan</span>
+                    <span class="location-count">4 Sites</span>
                 </li>
             </ul>
         </div>
@@ -59,73 +56,68 @@
 
     {{-- Main Content --}}
     <main class="main-content">
-        {{-- Search Bar --}}
-    {{-- Search + Map Button --}}
-<div class="flex items-center gap-4 mb-6">
-    <!-- Search -->
-    <div class="search-bar flex-1 max-w-[500px]">
-        <input type="text" placeholder="Cari lokasi mangrove">
-        <button class="btn-search">🔍</button>
-    </div>
+        {{-- Search + Map Button --}}
+        <div class="flex items-center gap-4 mb-6">
+            <!-- Search -->
+            <div class="search-bar flex-1 max-w-[500px]">
+                <input type="text" placeholder="Cari lokasi mangrove">
+                <button class="btn-search">🔍</button>
+            </div>
 
-    <!-- Spacer -->
-    <div class="ml-auto">
-        <!-- Map Button -->
-        <button
-            class="flex items-center justify-center
-                   w-[48px] h-[48px]
-                   rounded-[12px]
-                   border border-[#E0E4EE]
-                   bg-white"
-        >
-            <svg
-                class="w-5 h-5"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-            >
-
-
-                    <path
-                        d="M8.714 14H5.004
-                           C4.79433 14.0001 4.58999 14.0661 4.41987 14.1886
-                           C4.24976 14.3112 4.12247 14.4841 4.056 14.683
-                           L2.052 20.683
-                           C2.00176 20.8333 1.98797 20.9934 2.01175 21.1501
-                           C2.03554 21.3068 2.09623 21.4556 2.18882 21.5842
-                           C2.28141 21.7128 2.40324 21.8176 2.54428 21.8899
-                           C2.68532 21.9622 2.84152 21.9999 3 22H21
-                           C21.1584 21.9999 21.3144 21.9621 21.4554 21.8899
-                           C21.5963 21.8177 21.7181 21.713 21.8106 21.5845
-                           C21.9032 21.456 21.9639 21.3074 21.9878 21.1508
-                           C22.0117 20.9942 21.998 20.8343 21.948 20.684
-                           L19.948 14.684
-                           C19.8817 14.4848 19.7543 14.3115 19.584 14.1888
-                           C19.4136 14.066 19.209 13.9999 18.999 14H15.287
-                           M18 8
-                           C18 11.613 14.131 15.429 12.607 16.795
-                           C12.4327 16.9282 12.2194 17.0003 12 17.0003
-                           C11.7806 17.0003 11.5673 16.9282 11.393 16.795
-                           C9.87 15.429 6 11.613 6 8
-                           C6 6.4087 6.63214 4.88258 7.75736 3.75736
-                           C8.88258 2.63214 10.4087 2 12 2
-                           C13.5913 2 15.1174 2.63214 16.2426 3.75736
-                           C17.3679 4.88258 18 6.4087 18 8
-                           M14 8
-                           C14 9.10457 13.1046 10 12 10
-                           C10.8954 10 10 9.10457 10 8
-                           C10 6.89543 10.8954 6 12 6
-                           C13.1046 6 14 6.89543 14 8Z"
-                    />
-                </svg>
-        </button>
-         </div>
-    </div>
-
-
+            <!-- Spacer -->
+            <div class="ml-auto">
+                <!-- Map Button -->
+                <button
+                    class="flex items-center justify-center
+                           w-[48px] h-[48px]
+                           rounded-[12px]
+                           border border-[#E0E4EE]
+                           bg-white"
+                >
+                    <svg
+                        class="w-5 h-5"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    >
+                        <path
+                            d="M8.714 14H5.004
+                               C4.79433 14.0001 4.58999 14.0661 4.41987 14.1886
+                               C4.24976 14.3112 4.12247 14.4841 4.056 14.683
+                               L2.052 20.683
+                               C2.00176 20.8333 1.98797 20.9934 2.01175 21.1501
+                               C2.03554 21.3068 2.09623 21.4556 2.18882 21.5842
+                               C2.28141 21.7128 2.40324 21.8176 2.54428 21.8899
+                               C2.68532 21.9622 2.84152 21.9999 3 22H21
+                               C21.1584 21.9999 21.3144 21.9621 21.4554 21.8899
+                               C21.5963 21.8177 21.7181 21.713 21.8106 21.5845
+                               C21.9032 21.456 21.9639 21.3074 21.9878 21.1508
+                               C22.0117 20.9942 21.998 20.8343 21.948 20.684
+                               L19.948 14.684
+                               C19.8817 14.4848 19.7543 14.3115 19.584 14.1888
+                               C19.4136 14.066 19.209 13.9999 18.999 14H15.287
+                               M18 8
+                               C18 11.613 14.131 15.429 12.607 16.795
+                               C12.4327 16.9282 12.2194 17.0003 12 17.0003
+                               C11.7806 17.0003 11.5673 16.9282 11.393 16.795
+                               C9.87 15.429 6 11.613 6 8
+                               C6 6.4087 6.63214 4.88258 7.75736 3.75736
+                               C8.88258 2.63214 10.4087 2 12 2
+                               C13.5913 2 15.1174 2.63214 16.2426 3.75736
+                               C17.3679 4.88258 18 6.4087 18 8
+                               M14 8
+                               C14 9.10457 13.1046 10 12 10
+                               C10.8954 10 10 9.10457 10 8
+                               C10 6.89543 10.8954 6 12 6
+                               C13.1046 6 14 6.89543 14 8Z"
+                        />
+                    </svg>
+                </button>
+            </div>
+        </div>
 
         {{-- Filter Tabs --}}
         <div class="filter-tabs">
@@ -138,27 +130,11 @@
 
         {{-- Cards Grid --}}
         <div class="cards-grid">
-
-            @php
-             $hideNavbarMenu = true;
-            $locations = [
-                ['name' => 'Rawa Hutan Lindung', 'type' => 'Dilindungi', 'year' => '2020', 'area' => '44.7 ha', 'condition' => 'Sedang', 'coords' => '6.12, 106.76', 'desc' => 'Anacardio ada, Anacamia mamp...', 'status' => 'Tidak sedian berfectifikat', 'image' => 'https://res.cloudinary.com/dgctlfa2t/image/upload/v1755389322/rhl2_htfyvf.jpg'],
-                ['name' => 'Tanah Timbul (Bird Feeding)', 'type' => 'Pengkayaan', 'year' => '2021', 'area' => '2.83 ha', 'condition' => 'Jerang', 'coords' => '6.12, 106.76', 'desc' => 'Anacamia mamp, Aligue Rishcara...', 'status' => 'Tidak sedian berfectifikat', 'image' => 'https://res.cloudinary.com/dgctlfa2t/image/upload/v1758002227/2-tanah_timbul-1_couywb.jpg'],
-                ['name' => 'Pos 2 Hutan Lindung', 'type' => 'Pengkayaan', 'year' => '2020', 'area' => 'N/A', 'condition' => 'Sedang', 'coords' => '6.12, 106.76', 'desc' => 'Aliquip, Brisubido...', 'status' => 'Tidak sedian berfectifikat', 'image' => 'https://res.cloudinary.com/dgctlfa2t/image/upload/v1758003912/3-pos_2_hutan_lindung-3_hk6fqt.jpg'],
-                ['name' => 'Pos 5 Hutan Lindung', 'type' => 'Dilindungi', 'year' => '2020', 'area' => '4.7 ha', 'condition' => 'Lebat', 'coords' => '6.12, 106.76', 'desc' => 'Acaratilia da, Ecordania agalona...', 'status' => 'Tidak sedian berfectifikat', 'image' => 'https://res.cloudinary.com/dgctlfa2t/image/upload/v1758005191/4-pos5_hl-3_gezsmd.jpg'],
-                ['name' => 'Titik 2 Elang Laut', 'type' => 'Dilindungi', 'year' => '2021', 'area' => 'N/A', 'condition' => 'Lebat', 'coords' => '6.12, 106.76', 'desc' => 'Ricampria mucormata, Sonneratia caseolans...', 'status' => 'Tidak sedian berfectifikat', 'image' => 'https://res.cloudinary.com/dgctlfa2t/image/upload/v1758023885/5-elang_laut-3_xcqyxo.jpg'],
-                ['name' => 'TWA Angke Kapuk', 'type' => 'Pengkayaan', 'year' => '2021', 'area' => '99.82 ha', 'condition' => 'Sedang', 'coords' => '6.12, 106.76', 'desc' => 'Anacamio ada, Anacama mamp...', 'status' => 'Tidak sedian berfectifikat', 'image' => 'https://res.cloudinary.com/dgctlfa2t/image/upload/v1758027332/6-twa_angke-1_zobavq.jpg'],
-                ['name' => 'Rusun TNI AL', 'type' => 'Pengkayaan', 'year' => '2025', 'area' => '6 ha', 'condition' => 'Jerang', 'coords' => '6.12, 106.91', 'desc' => 'Anacamio ada, Rhizophora mucormata...', 'status' => 'Tidak sedian berfectifikat', 'image' => 'https://res.cloudinary.com/dgctlfa2t/image/upload/v1758068635/7-rusun_tni_al-1_gx1iqa.jpg'],
-                ['name' => 'Mangrove STIP', 'type' => 'Pengkayaan', 'year' => '2021', 'area' => '4.6 ha', 'condition' => 'Jerang', 'coords' => '6.12, 106.95', 'desc' => 'Anacamio ada, Anacama mamp...', 'status' => 'Tidak sedian berfectifikat', 'image' => 'https://res.cloudinary.com/dgctlfa2t/image/upload/v1758072894/8-stip-2_lmj2wl.jpg'],
-                ['name' => 'Mangrove Si Pitung', 'type' => 'Pengkayaan', 'year' => '2021', 'area' => '5.5 ha', 'condition' => 'Jerang', 'coords' => '6.12, 106.86', 'desc' => 'Anacamia mamp, Rhizophora mucormata...', 'status' => 'Tidak sedian berfectifikat', 'image' => 'https://res.cloudinary.com/dgctlfa2t/image/upload/v1758075414/9-si_pitung-3_puez20.jpg'],
-                ['name' => 'Pasmar 1 TNI AL', 'type' => 'Dilindungi', 'year' => '2021', 'area' => '5.5 ha', 'condition' => 'Jerang', 'coords' => '6.12, 106.86', 'desc' => 'Anacamia mamp, Rhizophora mucormata...', 'status' => 'Tidak sedian berfectifikat', 'image' => 'https://res.cloudinary.com/dgctlfa2t/image/upload/v1758079131/10-pasmar_cq9f1q.jpg'],
-            ];
-            @endphp
-
             @foreach($locations as $location)
-            <div class="card">
+            {{-- UBAH DARI <div class="card"> MENJADI <a> --}}
+            <a href="{{ route('detail-lokasi', $location['slug']) }}" class="card" style="text-decoration: none; color: inherit; display: block;">
                 <div class="card-image">
-                    <img src="{{ $location['image'] }}" alt="{{ $location['name'] }}" loading="lazy">
+                    <img src="{{ $location['images'][0] ?? 'https://via.placeholder.com/300x200' }}" alt="{{ $location['name'] }}" loading="lazy">
                 </div>
                 <div class="card-content">
                     <h3 class="card-title">{{ $location['name'] }}</h3>
@@ -178,57 +154,19 @@
                             </div>
                             <div class="detail-item">
                                 <span class="label">Kerapatan</span>
-                                <span class="value">{{ $location['condition'] }}</span>
+                                <span class="value">{{ $location['density'] }}</span>
                             </div>
                         </div>
-                        <p class="description">{{ $location['desc'] }}</p>
+                        <p class="description">{{ $location['description'] ?? 'Tidak ada deskripsi' }}</p>
                         <div class="status">
                             <span class="status-icon">📄</span>
-                            <span class="status-text">{{ $location['status'] }}</span>
+                            <span class="status-text">{{ $location['certificate_status'] }}</span>
                         </div>
                     </div>
                 </div>
-            </div>
-            @endforeach
+            </a>
 
-            {{-- Repeat cards as shown in the design --}}
-            @for($i = 0; $i < 5; $i++)
-                @foreach(array_slice($locations, 6, 3) as $location)
-                <div class="card">
-                    <div class="card-image">
-                        <img src="{{ asset('images/mangrove/' . $location['image']) }}" alt="{{ $location['name'] }}" loading="lazy">
-                    </div>
-                    <div class="card-content">
-                        <h3 class="card-title">{{ $location['name'] }}</h3>
-                        <div class="card-badges">
-                            <span class="badge badge-{{ strtolower($location['type']) }}">{{ $location['type'] }}</span>
-                            <span class="badge badge-year">{{ $location['year'] }}</span>
-                        </div>
-                        <div class="card-info">
-                            <div class="info-row">
-                                <span class="icon">📍</span>
-                                <span class="text">{{ $location['coords'] }}</span>
-                            </div>
-                            <div class="info-row details">
-                                <div class="detail-item">
-                                    <span class="label">Luas Area</span>
-                                    <span class="value">{{ $location['area'] }}</span>
-                                </div>
-                                <div class="detail-item">
-                                    <span class="label">Kerapatan</span>
-                                    <span class="value">{{ $location['condition'] }}</span>
-                                </div>
-                            </div>
-                            <p class="description">{{ $location['desc'] }}</p>
-                            <div class="status">
-                                <span class="status-icon">📄</span>
-                                <span class="status-text">{{ $location['status'] }}</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                @endforeach
-            @endfor
+            @endforeach
         </div>
     </main>
 </div>
@@ -474,45 +412,6 @@ body {
     border-color: var(--primary-color);
 }
 
-/* ===== Action Buttons ===== */
-.action-buttons {
-    display: flex;
-    gap: 0.75rem;
-    margin-bottom: 1.5rem;
-    justify-content: flex-end;
-}
-
-.btn {
-    padding: 0.625rem 1.25rem;
-    border: none;
-    border-radius: 8px;
-    font-size: 0.875rem;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.2s;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.btn-primary {
-    background-color: var(--primary-color);
-    color: white;
-}
-
-.btn-primary:hover {
-    background-color: #008c6a;
-}
-
-.btn-success {
-    background-color: #10b981;
-    color: white;
-}
-
-.btn-success:hover {
-    background-color: #059669;
-}
-
 /* ===== Cards Grid ===== */
 .cards-grid {
     display: grid;
@@ -520,6 +419,7 @@ body {
     gap: 1.25rem;
 }
 
+/* TAMBAHKAN HOVER EFFECT UNTUK CARD LINK */
 .card {
     background-color: var(--bg-white);
     border-radius: 12px;
@@ -578,6 +478,11 @@ body {
 .badge-pengkayaan {
     background-color: #fef3c7;
     color: #92400e;
+}
+
+.badge-rehabilitasi {
+    background-color: #fed7aa;
+    color: #9a3412;
 }
 
 .badge-year {
@@ -683,10 +588,6 @@ body {
     .cards-grid {
         grid-template-columns: 1fr;
     }
-
-    .action-buttons {
-        justify-content: flex-start;
-    }
 }
 
 @media (max-width: 576px) {
@@ -743,4 +644,3 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 @endsection
-

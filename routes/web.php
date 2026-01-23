@@ -1,22 +1,24 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\MonitoringController;
 
 /*
 |--------------------------------------------------------------------------
 | Web Routes
 |--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
 */
 
-// Home Page
-Route::get('/', function () {
-    return view('pages.home');
-})->name('home');
+// Home
+Route::get('/', [HomeController::class, 'index'])->name('home');
+
+// Monitoring Routes
+Route::prefix('monitoring')->group(function () {
+    Route::get('/', [MonitoringController::class, 'index'])->name('monitoring');
+    Route::get('/hasil-pemantauan', [MonitoringController::class, 'hasilPemantauan'])->name('hasil-pemantauan');
+    Route::get('/lokasi/{slug}', [MonitoringController::class, 'detailLokasi'])->name('detail-lokasi');
+});
 
 // Marketplace
 Route::get('/marketplace', function () {
@@ -32,16 +34,6 @@ Route::get('/komunitas', function () {
 Route::get('/edukasi', function () {
     return view('pages.edukasi');
 })->name('edukasi');
-
-// Monitoring
-Route::get('/monitoring', function () {
-    return view('pages.monitoring');
-})->name('monitoring');
-
-// Hasil-Pemantauan
-Route::get('/hasil-pemantauan', function () {
-    return view('pages.hasil-pemantauan');
-})->name('hasil-pemantauan');
 
 // Articles
 Route::prefix('artikel')->group(function () {
