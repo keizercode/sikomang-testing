@@ -277,6 +277,183 @@
         color: #bbb;
     }
 
+    /* Accordion Styles */
+    .accordion-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+        text-align: left;
+        transition: all 0.2s;
+    }
+
+    .accordion-header:hover {
+        opacity: 0.8;
+    }
+
+    .accordion-icon {
+        transition: transform 0.3s ease;
+        color: #6b7280;
+    }
+
+    .accordion-header.active .accordion-icon {
+        transform: rotate(180deg);
+    }
+
+    .accordion-content {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+    }
+
+    .accordion-content.active {
+        max-height: 2000px;
+        margin-top: 1rem;
+    }
+
+    /* Damage & Action Lists */
+    .damage-list,
+    .action-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .damage-item,
+    .action-item {
+        display: flex;
+        gap: 0.75rem;
+        padding: 0.75rem;
+        margin-bottom: 0.5rem;
+        background: #fef2f2;
+        border-left: 3px solid #dc2626;
+        border-radius: 4px;
+        font-size: 0.875rem;
+        line-height: 1.5;
+    }
+
+    .action-item {
+        background: #f0fdf4;
+        border-left-color: #16a34a;
+    }
+
+    .damage-number,
+    .action-number {
+        font-weight: 600;
+        color: #1a1a1a;
+        flex-shrink: 0;
+    }
+
+    /* Species Lists */
+    .species-section {
+        margin-bottom: 1.5rem;
+    }
+
+    .species-section:last-child {
+        margin-bottom: 0;
+    }
+
+    .species-subtitle {
+        font-size: 0.938rem;
+        font-weight: 600;
+        color: #1a1a1a;
+        margin-bottom: 0.75rem;
+    }
+
+    .species-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 0.5rem;
+    }
+
+    .species-list li {
+        padding: 0.5rem 0.75rem;
+        background: #f3f4f6;
+        border-radius: 4px;
+        font-size: 0.813rem;
+        color: #374151;
+    }
+
+    .species-list li:before {
+        content: "🌿";
+        margin-right: 0.5rem;
+    }
+
+    /* Activity Section */
+    .activity-description {
+        color: #4b5563;
+        line-height: 1.6;
+        margin-bottom: 1rem;
+        font-size: 0.875rem;
+    }
+
+    .activity-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .activity-list li {
+        padding: 0.5rem 0;
+        padding-left: 1.5rem;
+        position: relative;
+        font-size: 0.875rem;
+        color: #374151;
+    }
+
+    .activity-list li:before {
+        content: "•";
+        position: absolute;
+        left: 0.5rem;
+        color: #009966;
+        font-weight: bold;
+    }
+
+    /* Utilization, Program, Stakeholder Lists */
+    .utilization-list,
+    .program-list,
+    .stakeholder-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 0.75rem;
+    }
+
+    .utilization-list li,
+    .program-list li,
+    .stakeholder-list li {
+        padding: 0.75rem 1rem;
+        background: #f9fafb;
+        border: 1px solid #e5e7eb;
+        border-radius: 6px;
+        font-size: 0.875rem;
+        color: #374151;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .utilization-list li:before {
+        content: "🌳";
+    }
+
+    .program-list li:before {
+        content: "📋";
+    }
+
+    .stakeholder-list li:before {
+        content: "🤝";
+    }
+
     @media (max-width: 1024px) {
         .content-grid {
             grid-template-columns: 1fr;
@@ -302,6 +479,13 @@
 
         .gallery {
             grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        }
+
+        .species-list,
+        .utilization-list,
+        .program-list,
+        .stakeholder-list {
+            grid-template-columns: 1fr;
         }
     }
 </style>
@@ -414,6 +598,147 @@
                 </div>
             </div>
 
+            {{-- Kerusakan & Aksi Penanganan --}}
+            @if(isset($location['damages']) && count($location['damages']) > 0)
+            <div class="card">
+                <h2 class="card-title">Kerusakan Teridentifikasi</h2>
+                <ul class="damage-list">
+                    @foreach($location['damages'] as $index => $damage)
+                    <li class="damage-item">
+                        <span class="damage-number">{{ $index + 1 }}.</span>
+                        <span>{{ $damage }}</span>
+                    </li>
+                    @endforeach
+                </ul>
+            </div>
+
+            @if(isset($location['actions']) && count($location['actions']) > 0)
+            <div class="card">
+                <h2 class="card-title">Aksi Penanganan</h2>
+                <ul class="action-list">
+                    @foreach($location['actions'] as $index => $action)
+                    <li class="action-item">
+                        <span class="action-number">{{ $index + 1 }}.</span>
+                        <span>{{ $action }}</span>
+                    </li>
+                    @endforeach
+                </ul>
+            </div>
+            @endif
+            @endif
+
+            {{-- Spesies (Vegetasi dan Fauna) --}}
+            @if(isset($location['species_detail']))
+            <div class="card">
+                <button class="accordion-header" onclick="toggleAccordion('species')">
+                    <h2 class="card-title" style="margin: 0;">Spesies (Vegetasi dan Fauna)</h2>
+                    <svg class="accordion-icon" width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                    </svg>
+                </button>
+                <div class="accordion-content" id="accordion-species">
+                    @if(isset($location['species_detail']['vegetasi']))
+                    <div class="species-section">
+                        <h3 class="species-subtitle">Vegetasi:</h3>
+                        <ul class="species-list">
+                            @foreach($location['species_detail']['vegetasi'] as $veg)
+                            <li>{{ $veg }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                    @endif
+
+                    @if(isset($location['species_detail']['fauna']))
+                    <div class="species-section">
+                        <h3 class="species-subtitle">Fauna:</h3>
+                        <ul class="species-list">
+                            @foreach($location['species_detail']['fauna'] as $fauna)
+                            <li>{{ $fauna }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                    @endif
+                </div>
+            </div>
+            @endif
+
+            {{-- Aktivitas Sekitar --}}
+            @if(isset($location['activities']))
+            <div class="card">
+                <button class="accordion-header" onclick="toggleAccordion('activities')">
+                    <h2 class="card-title" style="margin: 0;">Aktivitas Sekitar</h2>
+                    <svg class="accordion-icon" width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                    </svg>
+                </button>
+                <div class="accordion-content" id="accordion-activities">
+                    <p class="activity-description">{{ $location['activities']['description'] }}</p>
+                    <ul class="activity-list">
+                        @foreach($location['activities']['items'] as $activity)
+                        <li>{{ $activity }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            </div>
+            @endif
+
+            {{-- Pemanfaatan Hutan --}}
+            @if(isset($location['forest_utilization']))
+            <div class="card">
+                <button class="accordion-header" onclick="toggleAccordion('utilization')">
+                    <h2 class="card-title" style="margin: 0;">Pemanfaatan Hutan</h2>
+                    <svg class="accordion-icon" width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                    </svg>
+                </button>
+                <div class="accordion-content" id="accordion-utilization">
+                    <ul class="utilization-list">
+                        @foreach($location['forest_utilization'] as $util)
+                        <li>{{ $util }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            </div>
+            @endif
+
+            {{-- Program yang Dilaksanakan --}}
+            @if(isset($location['programs']))
+            <div class="card">
+                <button class="accordion-header" onclick="toggleAccordion('programs')">
+                    <h2 class="card-title" style="margin: 0;">Program yang Dilaksanakan</h2>
+                    <svg class="accordion-icon" width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                    </svg>
+                </button>
+                <div class="accordion-content" id="accordion-programs">
+                    <ul class="program-list">
+                        @foreach($location['programs'] as $program)
+                        <li>{{ $program }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            </div>
+            @endif
+
+            {{-- Pihak Terkait --}}
+            @if(isset($location['stakeholders']))
+            <div class="card">
+                <button class="accordion-header" onclick="toggleAccordion('stakeholders')">
+                    <h2 class="card-title" style="margin: 0;">Pihak Terkait</h2>
+                    <svg class="accordion-icon" width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                    </svg>
+                </button>
+                <div class="accordion-content" id="accordion-stakeholders">
+                    <ul class="stakeholder-list">
+                        @foreach($location['stakeholders'] as $stakeholder)
+                        <li>{{ $stakeholder }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            </div>
+            @endif
+
             {{-- Galeri Foto --}}
             <div class="card">
                 <h2 class="card-title">Galeri Foto</h2>
@@ -459,14 +784,14 @@
             @endif
 
             {{-- Certificate Status --}}
-            <div class="card">
+            {{-- <div class="card">
                 <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">
                     <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
                     </svg>
                     <span style="font-size: 0.875rem; color: #dc2626;">{{ $location['certificate_status'] }}</span>
                 </div>
-            </div>
+            </div> --}}
 
             {{-- Back Button --}}
             <a href="{{ route('hasil-pemantauan') }}" class="btn btn-secondary" style="justify-content: center;">
@@ -529,6 +854,16 @@
     // Generate Report function
     function generateReport() {
         alert('Fitur generate report akan segera tersedia');
+    }
+
+    // Accordion toggle function
+    function toggleAccordion(id) {
+        const content = document.getElementById(`accordion-${id}`);
+        const header = content.previousElementSibling;
+
+        // Toggle active class
+        header.classList.toggle('active');
+        content.classList.toggle('active');
     }
 
     // Close modal on Escape key
