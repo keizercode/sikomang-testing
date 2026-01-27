@@ -1,0 +1,230 @@
+/* ===========================
+   HASIL PEMANTAUAN - POPUP & BUTTON
+   =========================== */
+
+.leaflet-popup-content-wrapper {
+    border-radius: 12px !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15) !important;
+    padding: 0 !important;
+    overflow: hidden;
+}
+
+.leaflet-popup-content {
+    margin: 0 !important;
+    min-width: 280px;
+}
+
+.custom-popup {
+    padding: 0;
+}
+
+.popup-header {
+    background: linear-gradient(135deg, #009966 0%, #00724c 100%);
+    padding: 1rem;
+    margin: 0;
+}
+
+.popup-title {
+    font-weight: 700;
+    font-size: 1rem;
+    color: white;
+    margin: 0;
+    line-height: 1.3;
+}
+
+.popup-body {
+    padding: 1rem;
+}
+
+.popup-info {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 0.625rem 0;
+    font-size: 0.875rem;
+    border-bottom: 1px solid #f3f4f6;
+}
+
+.popup-info:last-of-type {
+    border-bottom: none;
+}
+
+.popup-icon {
+    font-size: 1.25rem;
+    min-width: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.popup-content-wrapper {
+    flex: 1;
+    min-width: 0;
+}
+
+.popup-label {
+    font-weight: 500;
+    color: #6b7280;
+    font-size: 0.75rem;
+    margin-bottom: 0.125rem;
+}
+
+.popup-value {
+    color: #1a1a1a;
+    font-weight: 500;
+    font-size: 0.813rem;
+    word-wrap: break-word;
+}
+
+.density-badge {
+    display: inline-block;
+    padding: 0.25rem 0.625rem;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+.density-badge.jarang {
+    background: #8dd3c7;
+    color: #1a1a1a;
+}
+
+.density-badge.sedang {
+    background: #ffffb3;
+    color: #1a1a1a;
+}
+
+.density-badge.lebat {
+    background: #bebada;
+    color: #1a1a1a;
+}
+
+.popup-footer {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #e5e7eb;
+}
+
+.popup-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background: #009966;
+    color: white;
+    padding: 0.625rem 1.25rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    width: 100%;
+    box-shadow: 0 2px 4px rgba(0, 153, 102, 0.2);
+}
+
+.popup-link:hover {
+    background: #008855;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 153, 102, 0.3);
+    color: white;
+}
+
+.popup-link svg {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+}
+
+.leaflet-popup-tip {
+    background: white !important;
+}
+
+/* ===== 2. BUTTON MAP POSITIONING ===== */
+.search-map-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.search-bar {
+    flex: 1;
+    max-width: 500px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    background: white;
+    border: 1px solid #e0e4ee;
+    border-radius: 12px;
+    padding: 0.75rem 1rem;
+}
+
+.search-bar input {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-size: 0.875rem;
+    color: #1a1a1a;
+}
+
+.search-bar input::placeholder {
+    color: #9ca3af;
+}
+
+.btn-search {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.25rem;
+    padding: 0;
+    margin-left: 0.5rem;
+}
+
+.btn-map {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    border: 1px solid #e0e4ee;
+    background: white;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+}
+
+.btn-map svg {
+    width: 20px;
+    height: 20px;
+    stroke: #1a1a1a;
+}
+
+.btn-map:hover {
+    background: #f9fafb;
+    border-color: #009966;
+}
+
+.btn-map:hover svg {
+    stroke: #009966;
+}
+
+/* ===== 3. RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .search-map-container {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .search-bar {
+        max-width: 100%;
+    }
+
+    .btn-map {
+        margin-left: 0;
+        width: 100%;
+    }
+}

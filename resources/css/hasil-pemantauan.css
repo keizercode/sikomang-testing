@@ -189,10 +189,18 @@
     background-color: var(--bg-gray);
 }
 
+/* Search Bar & Map Button Container */
+.hasil-pemantauan-page .search-map-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
 /* Search Bar */
 .hasil-pemantauan-page .search-bar {
     display: flex;
-    margin-bottom: 1.5rem;
+    flex: 1;
     max-width: 500px;
 }
 
@@ -221,6 +229,36 @@
 
 .hasil-pemantauan-page .btn-search:hover {
     background-color: #008c6a;
+}
+
+/* Map Button */
+.hasil-pemantauan-page .btn-map {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border: 1px solid #e0e4ee;
+    background: white;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s;
+    margin-left: auto;
+}
+
+.hasil-pemantauan-page .btn-map:hover {
+    background: #f9fafb;
+    border-color: var(--primary-color);
+}
+
+.hasil-pemantauan-page .btn-map svg {
+    width: 20px;
+    height: 20px;
+    color: #6b7280;
+}
+
+.hasil-pemantauan-page .btn-map:hover svg {
+    color: var(--primary-color);
 }
 
 /* Filter Tabs */
@@ -628,6 +666,18 @@
 }
 
 @media (max-width: 768px) {
+    .hasil-pemantauan-page .search-map-container {
+        flex-wrap: wrap;
+    }
+
+    .hasil-pemantauan-page .search-bar {
+        max-width: 100%;
+    }
+
+    .hasil-pemantauan-page .btn-map {
+        margin-left: 0;
+    }
+
     .hasil-pemantauan-page .filter-tabs {
         overflow-x: auto;
         flex-wrap: nowrap;
