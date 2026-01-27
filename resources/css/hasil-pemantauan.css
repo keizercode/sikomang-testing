@@ -73,7 +73,7 @@
 }
 
 .hasil-pemantauan-page .stat-number.secondary {
-    color: var(--text-dark);
+    color: var(--primary-color);
     font-size: 2rem;
     margin-top: 0.5rem;
 }
