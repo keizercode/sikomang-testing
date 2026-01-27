@@ -156,18 +156,29 @@
         font-weight: 500;
         color: #374151;
         cursor: pointer;
+        text-decoration: none;
+        transition: all 0.2s;
     }
 
     .legend-map-data:hover {
         opacity: 0.85;
+        background: #7bc3bd;
     }
 
     .legend-sedang .legend-map-data {
         background: #FFFFB3;
     }
 
+    .legend-sedang .legend-map-data:hover {
+        background: #f0f0a3;
+    }
+
     .legend-lebat .legend-map-data {
         background: #BEBADA;
+    }
+
+    .legend-lebat .legend-map-data:hover {
+        background: #aeaaca;
     }
 
     .legend-map-data svg {
@@ -481,12 +492,12 @@
             {{-- Legend Card 1 - Jarang --}}
             <div class="legend-card legend-jarang">
                 <div class="legend-card-header">
-                    <div class="legend-map-data">
+                    <a href="{{ route('monitoring.export', 'jarang') }}" class="legend-map-data" title="Download data Mangrove Jarang">
                         <svg data-v-f0822899="" class="fill-[#6B7280]" width="12" height="15" viewBox="0 0 12 15" xmlns="http://www.w3.org/2000/svg">
                             <path d="M1.40625 13.125V1.875C1.40625 1.61719 1.61719 1.40625 1.875 1.40625H6.5625V3.75C6.5625 4.26855 6.98145 4.6875 7.5 4.6875H9.84375V13.125C9.84375 13.3828 9.63281 13.5938 9.375 13.5938H1.875C1.61719 13.5938 1.40625 13.3828 1.40625 13.125ZM1.875 0C0.84082 0 0 0.84082 0 1.875V13.125C0 14.1592 0.84082 15 1.875 15H9.375C10.4092 15 11.25 14.1592 11.25 13.125V4.52637C11.25 4.02832 11.0537 3.55078 10.7021 3.19922L8.04785 0.547852C7.69629 0.196289 7.22168 0 6.72363 0H1.875ZM6.32812 6.79688C6.32812 6.40723 6.01465 6.09375 5.625 6.09375C5.23535 6.09375 4.92188 6.40723 4.92188 6.79688V9.78809L4.01367 8.87988C3.73828 8.60449 3.29297 8.60449 3.02051 8.87988C2.74805 9.15527 2.74512 9.60059 3.02051 9.87305L5.12988 11.9824C5.40527 12.2578 5.85059 12.2578 6.12305 11.9824L8.23242 9.87305C8.50781 9.59766 8.50781 9.15234 8.23242 8.87988C7.95703 8.60742 7.51172 8.60449 7.23926 8.87988L6.33105 9.78809V6.79688H6.32812Z"/>
                         </svg>
                         <span>Map Data</span>
-                    </div>
+                    </a>
                     <button class="legend-expand-btn" onclick="toggleLegend('jarang')">
                         <span>Expand</span>
                         <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -505,12 +516,12 @@
             {{-- Legend Card 2 - Sedang --}}
             <div class="legend-card legend-sedang">
                 <div class="legend-card-header">
-                    <div class="legend-map-data">
+                    <a href="{{ route('monitoring.export', 'sedang') }}" class="legend-map-data" title="Download data Mangrove Sedang">
                         <svg data-v-f0822899="" class="fill-[#6B7280]" width="12" height="15" viewBox="0 0 12 15" xmlns="http://www.w3.org/2000/svg">
                             <path d="M1.40625 13.125V1.875C1.40625 1.61719 1.61719 1.40625 1.875 1.40625H6.5625V3.75C6.5625 4.26855 6.98145 4.6875 7.5 4.6875H9.84375V13.125C9.84375 13.3828 9.63281 13.5938 9.375 13.5938H1.875C1.61719 13.5938 1.40625 13.3828 1.40625 13.125ZM1.875 0C0.84082 0 0 0.84082 0 1.875V13.125C0 14.1592 0.84082 15 1.875 15H9.375C10.4092 15 11.25 14.1592 11.25 13.125V4.52637C11.25 4.02832 11.0537 3.55078 10.7021 3.19922L8.04785 0.547852C7.69629 0.196289 7.22168 0 6.72363 0H1.875ZM6.32812 6.79688C6.32812 6.40723 6.01465 6.09375 5.625 6.09375C5.23535 6.09375 4.92188 6.40723 4.92188 6.79688V9.78809L4.01367 8.87988C3.73828 8.60449 3.29297 8.60449 3.02051 8.87988C2.74805 9.15527 2.74512 9.60059 3.02051 9.87305L5.12988 11.9824C5.40527 12.2578 5.85059 12.2578 6.12305 11.9824L8.23242 9.87305C8.50781 9.59766 8.50781 9.15234 8.23242 8.87988C7.95703 8.60742 7.51172 8.60449 7.23926 8.87988L6.33105 9.78809V6.79688H6.32812Z"/>
                         </svg>
                         <span>Map Data</span>
-                    </div>
+                    </a>
                     <button class="legend-expand-btn" onclick="toggleLegend('sedang')">
                         <span>Expand</span>
                         <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -529,12 +540,12 @@
             {{-- Legend Card 3 - Lebat --}}
             <div class="legend-card legend-lebat">
                 <div class="legend-card-header">
-                    <div class="legend-map-data">
+                    <a href="{{ route('monitoring.export', 'lebat') }}" class="legend-map-data" title="Download data Mangrove Lebat">
                         <svg data-v-f0822899="" class="fill-[#6B7280]" width="12" height="15" viewBox="0 0 12 15" xmlns="http://www.w3.org/2000/svg">
                             <path d="M1.40625 13.125V1.875C1.40625 1.61719 1.61719 1.40625 1.875 1.40625H6.5625V3.75C6.5625 4.26855 6.98145 4.6875 7.5 4.6875H9.84375V13.125C9.84375 13.3828 9.63281 13.5938 9.375 13.5938H1.875C1.61719 13.5938 1.40625 13.3828 1.40625 13.125ZM1.875 0C0.84082 0 0 0.84082 0 1.875V13.125C0 14.1592 0.84082 15 1.875 15H9.375C10.4092 15 11.25 14.1592 11.25 13.125V4.52637C11.25 4.02832 11.0537 3.55078 10.7021 3.19922L8.04785 0.547852C7.69629 0.196289 7.22168 0 6.72363 0H1.875ZM6.32812 6.79688C6.32812 6.40723 6.01465 6.09375 5.625 6.09375C5.23535 6.09375 4.92188 6.40723 4.92188 6.79688V9.78809L4.01367 8.87988C3.73828 8.60449 3.29297 8.60449 3.02051 8.87988C2.74805 9.15527 2.74512 9.60059 3.02051 9.87305L5.12988 11.9824C5.40527 12.2578 5.85059 12.2578 6.12305 11.9824L8.23242 9.87305C8.50781 9.59766 8.50781 9.15234 8.23242 8.87988C7.95703 8.60742 7.51172 8.60449 7.23926 8.87988L6.33105 9.78809V6.79688H6.32812Z"/>
                         </svg>
                         <span>Map Data</span>
-                    </div>
+                    </a>
                     <button class="legend-expand-btn" onclick="toggleLegend('lebat')">
                         <span>Expand</span>
                         <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">

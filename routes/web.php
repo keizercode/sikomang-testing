@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MonitoringController;
+use App\Http\Controllers\ExcelExportController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,6 +19,9 @@ Route::prefix('monitoring')->group(function () {
     Route::get('/', [MonitoringController::class, 'index'])->name('monitoring');
     Route::get('/hasil-pemantauan', [MonitoringController::class, 'hasilPemantauan'])->name('hasil-pemantauan');
     Route::get('/lokasi/{slug}', [MonitoringController::class, 'detailLokasi'])->name('detail-lokasi');
+
+    // Export Excel
+    Route::get('/export/{category}', [ExcelExportController::class, 'exportMangroveData'])->name('monitoring.export');
 });
 
 // Marketplace

@@ -551,13 +551,15 @@ function initGroupMap() {
         });
 
         // Optional: Buka popup saat hover
-        marker.on('mouseover', function() {
-            this.openPopup();
-        });
+        marker.bindTooltip(location.name, {
+                permanent: false,
+                direction: 'top',
+                className: 'custom-tooltip'
+            });
     });
 
     // Fit bounds untuk menampilkan semua marker
-    if (allLocations.length > 0) {
+    if (allLocations.len/gth > 0) {
         const bounds = L.latLngBounds(allLocations.map(loc => loc.coords));
         groupMap.fitBounds(bounds, { padding: [50, 50] });
     }
