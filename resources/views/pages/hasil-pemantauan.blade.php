@@ -333,8 +333,6 @@
     <div id="groupMap" style="height: 500px; width: 100%; border-radius: 8px;"></div>
 </div>
 
-
-
 @push('scripts')
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
