@@ -14,14 +14,13 @@
 
                 {{-- Text --}}
                 <div class="hidden sm:block">
-                    <h1 class="text-base md:text-lg font-bold text-navbar leading-tight">SIKOMANG</h1>
-                    <p class="text-[10px] md:text-xs text-muted leading-tight">
+                    <h1 class="text-base md:text-lg font-bold text-navbar">SIKOMANG</h1>
+                    <p class="text-[10px] md:text-xs leading-tight text-muted">
                         Sistem Informasi dan Komunikasi<br>Mangrove DKI Jakarta
                     </p>
                 </div>
             </a>
-
-
+        </div>
     </div>
 </nav>
 

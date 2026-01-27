@@ -26,61 +26,65 @@
 
 /* Custom Utility Classes */
 .bg-primary {
-    background-color: var(--color-primary) !important;
+    background-color: #009966 !important;
 }
 
 .bg-primary-dark {
-    background-color: var(--color-primary-dark) !important;
+    background-color: #2d5c54 !important;
 }
 
 .bg-primary-light {
-    background-color: var(--color-primary-light) !important;
+    background-color: #5a9e91 !important;
 }
 
 .bg-secondary {
-    background-color: var(--color-secondary) !important;
+    background-color: #242621 !important;
 }
 
 .bg-navbar {
-    background-color: var(--color-navbar) !important;
+    background-color: #003d28 !important;
 }
 
 .bg-background {
-    background-color: var(--color-background) !important;
+    background-color: #fbfbfb !important;
 }
 
 .text-primary {
-    color: var(--color-primary) !important;
+    color: #009966 !important;
 }
 
 .text-secondary {
-    color: var(--color-secondary) !important;
+    color: #242621 !important;
 }
 
 .text-muted {
-    color: var(--color-muted) !important;
+    color: #4c5250 !important;
+}
+
+.text-navbar {
+    color: #003d28 !important;
 }
 
 .border-primary {
-    border-color: var(--color-primary) !important;
+    border-color: #009966 !important;
 }
 
 .hover\:bg-primary-dark:hover {
-    background-color: var(--color-primary-dark) !important;
+    background-color: #2d5c54 !important;
 }
 
 .hover\:bg-primary:hover {
-    background-color: var(--color-primary) !important;
+    background-color: #009966 !important;
 }
 
 .hover\:text-primary:hover {
-    color: var(--color-primary) !important;
+    color: #009966 !important;
 }
 
 .hover\:text-primary-dark:hover {
-    color: var(--color-primary-dark) !important;
+    color: #2d5c54 !important;
 }
 
 .hero-gradient {
-    background: linear-gradient(135deg, var(--color-primary) 100%);
+    background: linear-gradient(135deg, #009966 100%);
 }
