@@ -4,38 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="SIKOMANG - Sistem Informasi dan Komunikasi Mangrove DKI Jakarta">
-    <title>@yield('title', 'SIKOMANG - Sistem Informasi dan Komunikasi Mangrove DKI Jakarta')</title>
+    <title>@yield('title', 'SIKOMANG')</title>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="https://pencil-matter-70015947.figma.site/_assets/v11/5a52c0026642845f54f76f85096c3a34c237af42.png">
-
-
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: '#009966',
-                        'primary-dark': '#2d5c54',
-                        'primary-light': '#5a9e91',
-                        secondary: '#242621',
-                        navbar: '#003D28',
-                        accent: '#8f9d5d',
-                        muted: '#4c5250',
-                        background: '#fbfbfb',
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                    }
-                }
-            }
-        }
-    </script>
 
     <!-- Custom Styles -->
     <style>
@@ -44,7 +19,7 @@
         }
 
         .hero-gradient {
-            background: linear-gradient(135deg, #009966 100%);
+            background: linear-gradient(135deg, var(--color-primary) 100%);
         }
 
         .quote-icon {
@@ -61,33 +36,30 @@
         }
 
         .nav-link:hover {
-            color: #418276;
+            color: var(--color-primary-light);
         }
 
         .btn-primary {
-            background-color: #418276;
+            background-color: var(--color-primary-light);
             transition: all 0.3s ease;
         }
 
         .btn-primary:hover {
-            background-color: #2d5c54;
+            background-color: var(--color-primary-dark);
         }
     </style>
 
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
     @stack('styles')
 </head>
 <body class="bg-background text-secondary antialiased">
-    {{-- Navbar --}}
     @include('components.navbar')
 
-    {{-- Main Content --}}
     <main>
         @yield('content')
     </main>
 
-    {{-- Footer --}}
     @include('components.footer')
-
     @stack('scripts')
 </body>
 </html>

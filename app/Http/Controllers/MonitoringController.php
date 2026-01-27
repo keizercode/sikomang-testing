@@ -112,7 +112,7 @@ class MonitoringController extends Controller
     private function getLocations()
     {
         return [
-            // Kategori Jarang
+            // Kategori Jarang - Penjaringan
             [
                 'slug' => 'rawa-hutan-lindung',
                 'name' => 'Rawa Hutan Lindung',
@@ -124,6 +124,7 @@ class MonitoringController extends Controller
                 'health_score' => 'NAK: 7.2',
                 'coords' => '-6.1023, 106.7655',
                 'location' => 'Kecamatan Penjaringan, Jakarta Utara, Rawa Hutan Lindung',
+                'group' => 'penjaringan',
                 'manager' => 'DPHK',
                 'species' => 'Avicennia alba, Avicennia marina...',
                 'damage_count' => 2,
@@ -135,7 +136,6 @@ class MonitoringController extends Controller
                     'https://res.cloudinary.com/dgctlfa2t/image/upload/v1758002227/2-tanah_timbul-1_couywb.jpg',
                     'https://res.cloudinary.com/dgctlfa2t/image/upload/v1758003912/3-pos_2_hutan_lindung-3_hk6fqt.jpg'
                 ],
-                // Data tambahan khusus Rawa Hutan Lindung
                 'damages' => [
                     'Dahan patah dan pohon tumbang akibat angin kencang',
                     'Sampah dari laut'
@@ -202,6 +202,7 @@ class MonitoringController extends Controller
                 'health_score' => 'NAK: 6.8',
                 'coords' => '-6.0895, 106.7820',
                 'location' => 'Kecamatan Penjaringan, Jakarta Utara, Pos 5 Hutan Lindung',
+                'group' => 'penjaringan',
                 'manager' => 'DPHK',
                 'species' => 'Sonneratia caseolaris, Avicennia alba...',
                 'damage_count' => 1,
@@ -212,6 +213,8 @@ class MonitoringController extends Controller
                     'https://res.cloudinary.com/dgctlfa2t/image/upload/v1758005191/4-pos5_hl-3_gezsmd.jpg'
                 ]
             ],
+
+            // Kategori Jarang - Cilincing
             [
                 'slug' => 'rusun-tni-al',
                 'name' => 'Rusun TNI AL',
@@ -223,6 +226,7 @@ class MonitoringController extends Controller
                 'health_score' => 'NAK: 6.2',
                 'coords' => '-6.0912, 106.9105',
                 'location' => 'Kecamatan Cilincing, Jakarta Utara, Rusun TNI AL',
+                'group' => 'cilincing',
                 'manager' => 'DPHK',
                 'species' => 'Avicennia alba, Rhizophora mucronata...',
                 'damage_count' => 3,
@@ -234,7 +238,7 @@ class MonitoringController extends Controller
                 ]
             ],
 
-            // Kategori Sedang
+            // Kategori Sedang - Penjaringan
             [
                 'slug' => 'tanah-timbul-bird-feeding',
                 'name' => 'Tanah Timbul (Bird Feeding)',
@@ -246,6 +250,7 @@ class MonitoringController extends Controller
                 'health_score' => 'NAK: 5.8',
                 'coords' => '-6.1012, 106.7645',
                 'location' => 'Kecamatan Penjaringan, Jakarta Utara, Tanah Timbul',
+                'group' => 'penjaringan',
                 'manager' => 'DPHK',
                 'species' => 'Avicennia marina, Nypa fruticans...',
                 'damage_count' => 3,
@@ -268,6 +273,7 @@ class MonitoringController extends Controller
                 'health_score' => 'NAK: 6.5',
                 'coords' => '-6.1025, 106.7680',
                 'location' => 'Kecamatan Penjaringan, Jakarta Utara, Pos 2 Hutan Lindung',
+                'group' => 'penjaringan',
                 'manager' => 'DPHK',
                 'species' => 'Api-api, Buta-buta...',
                 'damage_count' => 4,
@@ -289,6 +295,7 @@ class MonitoringController extends Controller
                 'health_score' => 'NAK: 7.0',
                 'coords' => '-6.0921, 106.7590',
                 'location' => 'Kecamatan Penjaringan, Jakarta Utara, TWA Angke Kapuk',
+                'group' => 'penjaringan',
                 'manager' => 'DPHK',
                 'species' => 'Avicennia alba, Avicennia marina...',
                 'damage_count' => 2,
@@ -300,7 +307,7 @@ class MonitoringController extends Controller
                 ]
             ],
 
-            // Kategori Lebat
+            // Kategori Lebat - Penjaringan
             [
                 'slug' => 'titik-2-elang-laut',
                 'name' => 'Titik 2 Elang Laut',
@@ -312,6 +319,7 @@ class MonitoringController extends Controller
                 'health_score' => 'NAK: 8.1',
                 'coords' => '-6.1015, 106.7670',
                 'location' => 'Kecamatan Penjaringan, Jakarta Utara, Elang Laut',
+                'group' => 'penjaringan',
                 'manager' => 'DPHK',
                 'species' => 'Rhizophora mucronata',
                 'damage_count' => 3,
@@ -322,6 +330,8 @@ class MonitoringController extends Controller
                     'https://res.cloudinary.com/dgctlfa2t/image/upload/v1758023885/5-elang_laut-3_xcqyxo.jpg'
                 ]
             ],
+
+            // Kategori Lebat - Cilincing
             [
                 'slug' => 'mangrove-stip',
                 'name' => 'Mangrove STIP',
@@ -333,6 +343,7 @@ class MonitoringController extends Controller
                 'health_score' => 'NAK: 7.5',
                 'coords' => '-6.1223, 106.9512',
                 'location' => 'Kecamatan Cilincing, Jakarta Utara, STIP',
+                'group' => 'cilincing',
                 'manager' => 'DPHK',
                 'species' => 'Avicennia alba, Avicennia marina...',
                 'damage_count' => 2,
@@ -354,6 +365,7 @@ class MonitoringController extends Controller
                 'health_score' => 'NAK: 7.3',
                 'coords' => '-6.1198, 106.8645',
                 'location' => 'Kecamatan Cilincing, Jakarta Utara, Si Pitung',
+                'group' => 'cilincing',
                 'manager' => 'DPHK',
                 'species' => 'Avicennia marina, Rhizophora mucronata...',
                 'damage_count' => 4,
@@ -375,6 +387,7 @@ class MonitoringController extends Controller
                 'health_score' => 'NAK: 7.8',
                 'coords' => '-6.1156, 106.8598',
                 'location' => 'Kecamatan Cilincing, Jakarta Utara, Pasmar 1',
+                'group' => 'cilincing',
                 'manager' => 'DPHK',
                 'species' => 'Avicennia marina, Rhizophora mucronata...',
                 'damage_count' => 1,
