@@ -8,6 +8,7 @@
 @endpush
 
 @section('content')
+<div class="hasil-pemantauan-page">
 <div class="mangrove-container">
     {{-- Sidebar --}}
     <aside class="sidebar">
@@ -192,6 +193,7 @@
         </div>
     </main>
 </div>
+
 
 {{-- Modal Matriks Rekomendasi --}}
 <div class="matrix-backdrop" id="matrixBackdrop" onclick="closeMatrix()"></div>
@@ -502,4 +504,5 @@ document.addEventListener('keydown', function(e) {
 });
 </script>
 @endpush
+</div>
 @endsection
