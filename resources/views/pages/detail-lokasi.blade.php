@@ -4,9 +4,12 @@
 
 @push('styles')
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
 @vite([
     'resources/css/detail-lokasi.css',
-    'resources/js/detail-lokasi.js'])
+    'resources/js/detail-lokasi.js'
+
+])
 @endpush
 
 @section('content')
@@ -82,7 +85,7 @@
                         <div class="info-item">
                             <span class="info-label">{{ $info['label'] }}</span>
                             @if(isset($info['isParagraph']))
-                                <p class="style="color: #4b5563; line-height: 1.6; margin-top: 0.5rem;">{{ $info['value'] }}</p>
+                                <p style="color: #4b5563; line-height: 1.6; margin-top: 0.5rem;">{{ $info['value'] }}</p>
                             @else
                                 <span class="info-value">{{ $info['value'] }}</span>
                             @endif
@@ -162,7 +165,7 @@
                 <h2 class="card-title">Galeri Foto</h2>
                 <div class="gallery">
                     @foreach($location['images'] as $index => $image)
-                    <div class="gallery-item" onclick="openModal('{{ $image }}')">
+                    <div class="gallery-item" onclick="openModal({{ $index }})">
                         <img src="{{ $image }}" alt="{{ $location['name'] }} - Foto {{ $index + 1 }}" loading="lazy">
                     </div>
                     @endforeach
@@ -207,18 +210,18 @@
     </div>
 </div>
 
-{{-- Image Modal --}}
-<div id="imageModal" class="modal" onclick="closeModal()">
-    <span class="close">&times;</span>
-    <div class="modal-content">
-        <img id="modalImage" src="" alt="Detail Image">
-    </div>
-</div>
+{{-- Image Modal with Navigation & Thumbnails --}}
+
+<x-gallery-modal />
+
 @endsection
 
 @push('scripts')
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
+    // ===========================
+    // LEAFLET MAP INITIALIZATION
+    // ===========================
     document.addEventListener('DOMContentLoaded', function() {
         const coords = '{{ $location["coords"] }}'.split(",").map(c => parseFloat(c.trim()));
         const map = L.map("detailMap").setView([coords[0], coords[1]], 15);
@@ -242,6 +245,7 @@
 
         setTimeout(() => map.invalidateSize(), 100);
     });
-</script>
 
+
+</script>
 @endpush

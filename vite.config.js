@@ -7,12 +7,13 @@ export default defineConfig({
         laravel({
             input: [
                 "resources/css/app.css",
+                "resources/js/app.js",
                 "resources/css/hasil-pemantauan.css",
                 "resources/css/hasil-pemantauan-popup.css",
-                "resources/css/monitoring.css",
-                "resources/js/app.js",
                 "resources/js/hasil-pemantauan.js",
+                "resources/css/monitoring.css",
                 "resources/js/detail-lokasi.js",
+                "resources/css/detail-lokasi.css",
             ],
             refresh: true,
         }),
