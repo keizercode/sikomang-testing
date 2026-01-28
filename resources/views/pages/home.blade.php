@@ -41,7 +41,7 @@
                         <button
                         type="button"
                         onclick="openModal()"
-                        class="inline-flex items-center space-x-2 border border-gray-300 text-secondary px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-all"
+                        class="cursor-pointer inline-flex items-center space-x-2 border border-gray-300 text-secondary px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-all"
                     >
                         <span>Pelajari lebih lanjut</span>
                         {{-- Info Icon --}}

@@ -220,21 +220,38 @@ function toggleAccordion(id) {
     content.classList.toggle("active");
 }
 
-// Initialize on DOM ready
+// ===========================
+// INITIALIZE ON DOM READY
+// ===========================
 document.addEventListener("DOMContentLoaded", function () {
+    console.log("DOM loaded, initializing gallery...");
+
+    // Initialize gallery
     initializeGallery();
+
+    // Attach click event to all gallery items
+    const galleryItems = document.querySelectorAll(".gallery-item");
+    console.log("Found gallery items:", galleryItems.length);
+
+    galleryItems.forEach((item, index) => {
+        item.addEventListener("click", function (e) {
+            console.log("Gallery item clicked, index:", index);
+            e.preventDefault();
+            openModal(index);
+        });
+
+        // Add pointer cursor
+        item.style.cursor = "pointer";
+    });
+
+    // Keyboard navigation
     document.addEventListener("keydown", handleKeydown);
 
+    // Modal backdrop click
     const modal = document.getElementById("imageModal");
     if (modal) {
         modal.addEventListener("click", handleModalClick);
     }
-    document.querySelectorAll(".btn-map").forEach((btn) => {
-        btn.addEventListener("click", () => {
-            const index = parseInt(btn.dataset.index, 10);
-            openModal(index);
-        });
-    });
 
     console.log("Gallery modal with thumbnails initialized successfully");
 });
