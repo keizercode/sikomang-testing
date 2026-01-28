@@ -1,0 +1,66 @@
+/* ===========================
+    ACCORDION STYLES -
+   =========================== */
+.accordion-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    text-align: left;
+    transition: all 0.2s ease;
+}
+
+.accordion-header:hover {
+    opacity: 0.8;
+}
+
+.accordion-header:active {
+    transform: scale(0.99);
+}
+
+.accordion-icon {
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    color: #6b7280;
+    flex-shrink: 0;
+}
+
+.accordion-header.active .accordion-icon {
+    transform: rotate(180deg);
+    color: #009966;
+}
+
+/* IMPROVED: Smooth accordion content transition */
+.accordion-content {
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    margin-top: 0;
+    transition:
+        max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+        opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+        margin-top 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.accordion-content.active {
+    opacity: 1;
+    margin-top: 1rem;
+    /* max-height will be set by JavaScript for smooth animation */
+}
+
+/* Smooth inner content reveal */
+.accordion-content > * {
+    transform: translateY(-10px);
+    opacity: 0;
+    transition:
+        transform 0.3s cubic-bezier(0.4, 0, 0.2, 1) 0.1s,
+        opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1) 0.1s;
+}
+
+.accordion-content.active > * {
+    transform: translateY(0);
+    opacity: 1;
+}

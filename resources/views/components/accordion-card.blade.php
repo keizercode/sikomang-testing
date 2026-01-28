@@ -1,7 +1,7 @@
 @props(['id', 'title', 'icon' => null])
 
 <div class="card">
-    <button class="accordion-header" onclick="toggleAccordion('{{ $id }}')">
+    <button type="button" class="accordion-header" onclick="window.toggleAccordion('{{ $id }}')">
         <h2 class="card-title" style="margin: 0;">
             @if($icon) {!! $icon !!} @endif
             {{ $title }}

@@ -7,7 +7,8 @@
 
 @vite([
     'resources/css/detail-lokasi.css',
-    'resources/js/detail-lokasi.js'
+    'resources/css/accordion.css',
+    'resources/js/detail-lokasi.js',
 
 ])
 @endpush
@@ -245,6 +246,11 @@
 
         setTimeout(() => map.invalidateSize(), 100);
     });
+
+    // Generate Report function
+    function generateReport() {
+        alert('Fitur generate report akan segera tersedia');
+    }
 
 
 </script>

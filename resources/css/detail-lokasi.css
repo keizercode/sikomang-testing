@@ -466,44 +466,6 @@
     white-space: nowrap;
 }
 
-/* Accordion Styles */
-.accordion-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 0;
-    text-align: left;
-    transition: all 0.2s;
-}
-
-.accordion-header:hover {
-    opacity: 0.8;
-}
-
-.accordion-icon {
-    transition: transform 0.3s ease;
-    color: #6b7280;
-}
-
-.accordion-header.active .accordion-icon {
-    transform: rotate(180deg);
-}
-
-.accordion-content {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease;
-}
-
-.accordion-content.active {
-    max-height: 2000px;
-    margin-top: 1rem;
-}
-
 /* Damage & Action Lists */
 .damage-list,
 .action-list {
@@ -599,13 +561,11 @@
 
 .activity-list li:before {
     content: "•";
-    position: absolute;
-    left: 0.5rem;
     color: #009966;
-    font-weight: bold;
 }
 
 /* Utilization, Program, Stakeholder Lists */
+.activity-list,
 .utilization-list,
 .program-list,
 .stakeholder-list {
@@ -617,6 +577,7 @@
     gap: 0.75rem;
 }
 
+.activity-list li,
 .utilization-list li,
 .program-list li,
 .stakeholder-list li {

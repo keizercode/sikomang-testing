@@ -209,22 +209,63 @@ function generateReport() {
 }
 
 /**
- * Toggle Accordion
+ * Toggle Accordion - SMOOTH VERSION
  */
 function toggleAccordion(id) {
+    console.log("toggleAccordion called with id:", id);
+
     const content = document.getElementById(`accordion-${id}`);
-    if (!content) return;
+    if (!content) {
+        console.error("Accordion content not found for id:", id);
+        return;
+    }
 
     const header = content.previousElementSibling;
-    header.classList.toggle("active");
-    content.classList.toggle("active");
+    if (!header) {
+        console.error("Accordion header not found");
+        return;
+    }
+
+    // Check if currently active
+    const isActive = content.classList.contains("active");
+
+    if (isActive) {
+        // CLOSING: First set max-height to current scrollHeight for smooth transition
+        content.style.maxHeight = content.scrollHeight + "px";
+
+        // Force reflow
+        content.offsetHeight;
+
+        // Then set to 0
+        content.style.maxHeight = "0";
+
+        // Remove active class
+        content.classList.remove("active");
+        header.classList.remove("active");
+        console.log("Accordion closed:", id);
+    } else {
+        // OPENING: Set max-height to scrollHeight for smooth expansion
+        content.classList.add("active");
+        header.classList.add("active");
+
+        // Calculate and set the actual height
+        content.style.maxHeight = content.scrollHeight + "px";
+        console.log("Accordion opened:", id, "Height:", content.scrollHeight);
+
+        // After transition completes, remove inline max-height to allow dynamic content
+        setTimeout(() => {
+            if (content.classList.contains("active")) {
+                content.style.maxHeight = "none";
+            }
+        }, 400); // Match CSS transition duration
+    }
 }
 
 // ===========================
 // INITIALIZE ON DOM READY
 // ===========================
 document.addEventListener("DOMContentLoaded", function () {
-    console.log("DOM loaded, initializing gallery...");
+    console.log("DOM loaded, initializing detail-lokasi...");
 
     // Initialize gallery
     initializeGallery();
@@ -254,4 +295,8 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     console.log("Gallery modal with thumbnails initialized successfully");
+
+    // Make toggleAccordion globally accessible
+    window.toggleAccordion = toggleAccordion;
+    console.log("toggleAccordion function attached to window");
 });
