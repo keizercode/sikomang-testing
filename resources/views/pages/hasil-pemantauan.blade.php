@@ -418,35 +418,29 @@ function closeMapModal() {
 // HASIL PEMANTAUAN - POPUP SCRIPT UPDATE
 // ===========================
 
-// GANTI fungsi initGroupMap() dengan kode di bawah ini:
-
+// GUNAKAN DATA DARI CONTROLLER:
 function initGroupMap() {
-    // Initialize map
     groupMap = L.map('groupMap').setView([-6.10, 106.80], 12);
 
-    // Add tile layer
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
         maxZoom: 19
     }).addTo(groupMap);
 
-    // Data lokasi mangrove
-    const groupLocations = {
-        'penjaringan': [
-            { name: 'Rawa Hutan Lindung', coords: [-6.1023, 106.7655], area: '44.7 ha', density: 'Jarang', slug: 'rawa-hutan-lindung' },
-            { name: 'Tanah Timbul (Bird Feeding)', coords: [-6.1012, 106.7645], area: '2.89 ha', density: 'Sedang', slug: 'tanah-timbul-bird-feeding' },
-            { name: 'Pos 2 Hutan Lindung', coords: [-6.1025, 106.7680], area: 'N/A', density: 'Sedang', slug: 'pos-2-hutan-lindung' },
-            { name: 'Pos 5 Hutan Lindung', coords: [-6.0895, 106.7820], area: '4.7 ha', density: 'Jarang', slug: 'pos-5-hutan-lindung' },
-            { name: 'TWA Angke Kapuk', coords: [-6.0921, 106.7590], area: '99.82 ha', density: 'Sedang', slug: 'twa-angke-kapuk' },
-            { name: 'Titik 2 Elang Laut', coords: [-6.1015, 106.7670], area: 'N/A', density: 'Lebat', slug: 'titik-2-elang-laut' }
-        ],
-        'cilincing': [
-            { name: 'Rusun TNI AL', coords: [-6.0912, 106.9105], area: '6 ha', density: 'Jarang', slug: 'rusun-tni-al' },
-            { name: 'Mangrove STIP', coords: [-6.1223, 106.9512], area: '4.6 ha', density: 'Lebat', slug: 'mangrove-stip' },
-            { name: 'Mangrove Si Pitung', coords: [-6.1198, 106.8645], area: '5.5 ha', density: 'Lebat', slug: 'mangrove-si-pitung' },
-            { name: 'Pasmar 1 TNI AL', coords: [-6.1156, 106.8598], area: '5.5 ha', density: 'Lebat', slug: 'pasmar-1-tni-al' }
-        ]
-    };
+    // Data lokasi mangrove dari controller
+    const locationsFromController = @json($locations);
+
+    // Convert ke format yang diperlukan untuk map
+    const allLocations = locationsFromController.map(location => {
+        const coordsArray = location.coords.split(',').map(c => parseFloat(c.trim()));
+        return {
+            name: location.name,
+            coords: coordsArray,
+            area: location.area,
+            density: location.density,
+            slug: location.slug
+        };
+    });
 
     // Warna marker berdasarkan kerapatan
     const densityColors = {
@@ -487,9 +481,6 @@ function initGroupMap() {
             popupAnchor: [0, -32]
         });
     };
-
-    // Gabungkan semua lokasi
-    const allLocations = [...groupLocations['penjaringan'], ...groupLocations['cilincing']];
 
     // Tambahkan marker untuk setiap lokasi dengan popup yang menarik
     allLocations.forEach(location => {
@@ -552,14 +543,14 @@ function initGroupMap() {
 
         // Optional: Buka popup saat hover
         marker.bindTooltip(location.name, {
-                permanent: false,
-                direction: 'top',
-                className: 'custom-tooltip'
-            });
+            permanent: false,
+            direction: 'top',
+            className: 'custom-tooltip'
+        });
     });
 
     // Fit bounds untuk menampilkan semua marker
-    if (allLocations.len/gth > 0) {
+    if (allLocations.length > 0) {
         const bounds = L.latLngBounds(allLocations.map(loc => loc.coords));
         groupMap.fitBounds(bounds, { padding: [50, 50] });
     }

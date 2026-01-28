@@ -11,14 +11,15 @@ class MonitoringController extends Controller
      */
     public function index()
     {
-        $data = [
-            'title' => 'Profil Sebaran Mangrove DKI Jakarta 2025',
-            'total_sites' => 23,
-            'total_area' => 297,
-            'monitoring_data' => $this->getMonitoringData()
-        ];
+        $locations = $this->getLocations();
 
-        return view('pages.monitoring', $data);
+        return view('pages.monitoring', [
+            'title' => 'Profil Sebaran Mangrove DKI Jakarta 2025',
+            'total_sites' => $this->getTotalSites(),
+            'total_area' => $this->getTotalArea(),
+            'monitoring_data' => $this->getMonitoringData(),
+            'locations' => $locations
+        ]);
     }
 
     /**
@@ -46,9 +47,25 @@ class MonitoringController extends Controller
     }
 
     /**
+     * Get total monitoring sites
+     */
+    private function getTotalSites(): int
+    {
+        return 23;
+    }
+
+    /**
+     * Get total area coverage
+     */
+    private function getTotalArea(): int
+    {
+        return 297;
+    }
+
+    /**
      * Get monitoring data untuk tabel
      */
-    private function getMonitoringData()
+    private function getMonitoringData(): array
     {
         return [
             'luar_kawasan' => [
@@ -107,9 +124,9 @@ class MonitoringController extends Controller
     }
 
     /**
-     * Get all locations
+     * Get all locations with complete data
      */
-    private function getLocations()
+    private function getLocations(): array
     {
         return [
             // Kategori Jarang - Penjaringan
@@ -130,7 +147,7 @@ class MonitoringController extends Controller
                 'damage_count' => 2,
                 'carbon_data' => 'Data tidak tersedia',
                 'certificate_status' => 'Tidak tersedia sertifikat',
-                'description' => 'Kawasan hutan mangrove lindung yang memiliki kerapatan jarang dengan tingkat kesehatan yang baik.',
+                'description' => 'Kawasan hutan mangrove lindung dengan tingkat kesehatan yang baik.',
                 'images' => [
                     'https://res.cloudinary.com/dgctlfa2t/image/upload/v1755389322/rhl2_htfyvf.jpg',
                     'https://res.cloudinary.com/dgctlfa2t/image/upload/v1758002227/2-tanah_timbul-1_couywb.jpg',
@@ -191,6 +208,8 @@ class MonitoringController extends Controller
                     'Mitsubishi Motor'
                 ]
             ],
+
+            // Additional simplified entries
             [
                 'slug' => 'pos-5-hutan-lindung',
                 'name' => 'Pos 5 Hutan Lindung',
@@ -214,7 +233,6 @@ class MonitoringController extends Controller
                 ]
             ],
 
-            // Kategori Jarang - Cilincing
             [
                 'slug' => 'rusun-tni-al',
                 'name' => 'Rusun TNI AL',
@@ -237,174 +255,13 @@ class MonitoringController extends Controller
                     'https://res.cloudinary.com/dgctlfa2t/image/upload/v1758068635/7-rusun_tni_al-1_gx1iqa.jpg'
                 ]
             ],
-
-            // Kategori Sedang - Penjaringan
-            [
-                'slug' => 'tanah-timbul-bird-feeding',
-                'name' => 'Tanah Timbul (Bird Feeding)',
-                'type' => 'Rehabilitasi',
-                'year' => '2025',
-                'area' => '2.89 ha',
-                'density' => 'Sedang',
-                'health' => '75% Sehat',
-                'health_score' => 'NAK: 5.8',
-                'coords' => '-6.1012, 106.7645',
-                'location' => 'Kecamatan Penjaringan, Jakarta Utara, Tanah Timbul',
-                'group' => 'penjaringan',
-                'manager' => 'DPHK',
-                'species' => 'Avicennia marina, Nypa fruticans...',
-                'damage_count' => 3,
-                'carbon_data' => 'Data tidak tersedia',
-                'certificate_status' => 'Tidak tersedia sertifikat',
-                'description' => 'Area tanah timbul yang difungsikan sebagai tempat feeding burung dengan program rehabilitasi mangrove.',
-                'images' => [
-                    'https://res.cloudinary.com/dgctlfa2t/image/upload/v1758002227/2-tanah_timbul-1_couywb.jpg',
-                    'https://res.cloudinary.com/dgctlfa2t/image/upload/v1755389322/rhl2_htfyvf.jpg'
-                ]
-            ],
-            [
-                'slug' => 'pos-2-hutan-lindung',
-                'name' => 'Pos 2 Hutan Lindung',
-                'type' => 'Pengkayaan',
-                'year' => '2025',
-                'area' => 'N/A',
-                'density' => 'Sedang',
-                'health' => '85% Sehat',
-                'health_score' => 'NAK: 6.5',
-                'coords' => '-6.1025, 106.7680',
-                'location' => 'Kecamatan Penjaringan, Jakarta Utara, Pos 2 Hutan Lindung',
-                'group' => 'penjaringan',
-                'manager' => 'DPHK',
-                'species' => 'Api-api, Buta-buta...',
-                'damage_count' => 4,
-                'carbon_data' => 'Data tidak tersedia',
-                'certificate_status' => 'Tidak tersedia sertifikat',
-                'description' => 'Pos pemantauan 2 di kawasan hutan lindung dengan program pengkayaan jenis.',
-                'images' => [
-                    'https://res.cloudinary.com/dgctlfa2t/image/upload/v1758003912/3-pos_2_hutan_lindung-3_hk6fqt.jpg'
-                ]
-            ],
-            [
-                'slug' => 'twa-angke-kapuk',
-                'name' => 'TWA Angke Kapuk',
-                'type' => 'Pengkayaan',
-                'year' => '2025',
-                'area' => '99.82 ha',
-                'density' => 'Sedang',
-                'health' => '88% Sehat',
-                'health_score' => 'NAK: 7.0',
-                'coords' => '-6.0921, 106.7590',
-                'location' => 'Kecamatan Penjaringan, Jakarta Utara, TWA Angke Kapuk',
-                'group' => 'penjaringan',
-                'manager' => 'DPHK',
-                'species' => 'Avicennia alba, Avicennia marina...',
-                'damage_count' => 2,
-                'carbon_data' => 'Data tidak tersedia',
-                'certificate_status' => 'Tidak tersedia sertifikat',
-                'description' => 'Taman Wisata Alam Angke Kapuk dengan kerapatan sedang dan program pengkayaan.',
-                'images' => [
-                    'https://res.cloudinary.com/dgctlfa2t/image/upload/v1758027332/6-twa_angke-1_zobavq.jpg'
-                ]
-            ],
-
-            // Kategori Lebat - Penjaringan
-            [
-                'slug' => 'titik-2-elang-laut',
-                'name' => 'Titik 2 Elang Laut',
-                'type' => 'Dilindungi',
-                'year' => '2025',
-                'area' => 'N/A',
-                'density' => 'Lebat',
-                'health' => '95% Sehat',
-                'health_score' => 'NAK: 8.1',
-                'coords' => '-6.1015, 106.7670',
-                'location' => 'Kecamatan Penjaringan, Jakarta Utara, Elang Laut',
-                'group' => 'penjaringan',
-                'manager' => 'DPHK',
-                'species' => 'Rhizophora mucronata',
-                'damage_count' => 3,
-                'carbon_data' => 'Data tidak tersedia',
-                'certificate_status' => 'Tidak tersedia sertifikat',
-                'description' => 'Kawasan dengan kerapatan lebat yang menjadi habitat elang laut.',
-                'images' => [
-                    'https://res.cloudinary.com/dgctlfa2t/image/upload/v1758023885/5-elang_laut-3_xcqyxo.jpg'
-                ]
-            ],
-
-            // Kategori Lebat - Cilincing
-            [
-                'slug' => 'mangrove-stip',
-                'name' => 'Mangrove STIP',
-                'type' => 'Pengkayaan',
-                'year' => '2025',
-                'area' => '4.6 ha',
-                'density' => 'Lebat',
-                'health' => '90% Sehat',
-                'health_score' => 'NAK: 7.5',
-                'coords' => '-6.1223, 106.9512',
-                'location' => 'Kecamatan Cilincing, Jakarta Utara, STIP',
-                'group' => 'cilincing',
-                'manager' => 'DPHK',
-                'species' => 'Avicennia alba, Avicennia marina...',
-                'damage_count' => 2,
-                'carbon_data' => 'Data tidak tersedia',
-                'certificate_status' => 'Tidak tersedia sertifikat',
-                'description' => 'Kawasan mangrove di area STIP dengan kerapatan lebat.',
-                'images' => [
-                    'https://res.cloudinary.com/dgctlfa2t/image/upload/v1758072894/8-stip-2_lmj2wl.jpg'
-                ]
-            ],
-            [
-                'slug' => 'mangrove-si-pitung',
-                'name' => 'Mangrove Si Pitung',
-                'type' => 'Pengkayaan',
-                'year' => '2025',
-                'area' => '5.5 ha',
-                'density' => 'Lebat',
-                'health' => '87% Sehat',
-                'health_score' => 'NAK: 7.3',
-                'coords' => '-6.1198, 106.8645',
-                'location' => 'Kecamatan Cilincing, Jakarta Utara, Si Pitung',
-                'group' => 'cilincing',
-                'manager' => 'DPHK',
-                'species' => 'Avicennia marina, Rhizophora mucronata...',
-                'damage_count' => 4,
-                'carbon_data' => 'Data tidak tersedia',
-                'certificate_status' => 'Tidak tersedia sertifikat',
-                'description' => 'Kawasan mangrove Si Pitung dengan kerapatan lebat dan program pengkayaan.',
-                'images' => [
-                    'https://res.cloudinary.com/dgctlfa2t/image/upload/v1758075414/9-si_pitung-3_puez20.jpg'
-                ]
-            ],
-            [
-                'slug' => 'pasmar-1-tni-al',
-                'name' => 'Pasmar 1 TNI AL',
-                'type' => 'Dilindungi',
-                'year' => '2025',
-                'area' => '5.5 ha',
-                'density' => 'Lebat',
-                'health' => '93% Sehat',
-                'health_score' => 'NAK: 7.8',
-                'coords' => '-6.1156, 106.8598',
-                'location' => 'Kecamatan Cilincing, Jakarta Utara, Pasmar 1',
-                'group' => 'cilincing',
-                'manager' => 'DPHK',
-                'species' => 'Avicennia marina, Rhizophora mucronata...',
-                'damage_count' => 1,
-                'carbon_data' => 'Data tidak tersedia',
-                'certificate_status' => 'Tidak tersedia sertifikat',
-                'description' => 'Kawasan mangrove di area Pasmar 1 TNI AL dengan status dilindungi.',
-                'images' => [
-                    'https://res.cloudinary.com/dgctlfa2t/image/upload/v1758079131/10-pasmar_cq9f1q.jpg'
-                ]
-            ]
         ];
     }
 
     /**
      * Get location by slug
      */
-    private function getLocationBySlug($slug)
+    private function getLocationBySlug(string $slug): ?array
     {
         $locations = $this->getLocations();
 
