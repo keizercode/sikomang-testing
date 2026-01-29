@@ -257,7 +257,7 @@ function toggleAccordion(id) {
             if (content.classList.contains("active")) {
                 content.style.maxHeight = "none";
             }
-        }, 400); // Match CSS transition duration
+        }, 400);
     }
 }
 
