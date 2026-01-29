@@ -9,6 +9,7 @@ window.openModal = function (index) {
 
 window.closeModal = function () {
     document.getElementById("imageModal").style.display = "none";
+    document.body.style.overflow = ""; // atau "auto"
 };
 
 window.nextImage = function () {
